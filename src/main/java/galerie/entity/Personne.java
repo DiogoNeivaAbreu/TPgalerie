@@ -27,9 +27,16 @@ public class Personne {
     @NonNull
     private String adresse;
     
-    @OneToMany(mappedBy="personne")
-    private List<Transaction> transactions;
+    @OneToMany(mappedBy ="client")
+    private List<Transaction> achats;
     
-    
-    
+    public float budgetArt(int annee){
+        float budget = 0;
+        for(Transaction a : achats){
+            if(a.getVenduLe().equals(annee)){
+                budget += a.getPrixVente();
+            }
+        }
+        return budget;
+    }
 }

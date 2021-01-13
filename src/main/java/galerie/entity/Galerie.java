@@ -21,6 +21,16 @@ public class Galerie {
     @NonNull
     private String adresse;
     
-    @OneToMany(mappedBy = "galerie", cascade = CascadeType.ALL)
-	private List<Exposition> exposition = new LinkedList<>();
+    @OneToMany(mappedBy = "organisateur", cascade = CascadeType.ALL)
+    private List<Exposition> evenements = new LinkedList<>();
+    
+    public float CAannuel(int annee){
+        float result = 0;
+        for( Exposition e : evenements){
+            if(e.getDebut().equals(annee)){
+                result += e.CA();
+            }
+        }
+        return result;
+    }
 }

@@ -9,7 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import lombok.*;
 
@@ -31,9 +34,26 @@ public class Exposition {
     @NonNull
     private int duree;
     
-    @OneToMany(mappedBy = "exposition", cascade = CascadeType.ALL)
-	private List<Transaction> transaction = new LinkedList<>();
+    @ManyToOne
+    private Galerie organisateur;
     
-    @ManyToMany(mappedBy = "expositioin", cascade = CascadeType.ALL)
-	private List<Tableau> tableau = new LinkedList<>();
+    @OneToMany(mappedBy = "lieuDeVente", cascade = CascadeType.ALL)
+	private List<Transaction> ventes = new LinkedList<>();
+    
+    @ManyToMany
+    @JoinTable(name="expo_tableau",
+    joinColumns = 
+            @JoinColumn(name = "exposition_id", referencedColumnName="id"),
+    inverseJoinColumns = 
+            @JoinColumn(name = "tableau_id",  referencedColumnName="id")
+    )            
+    List<Tableau> oeuvres = new LinkedList<>();
+    
+    public float CA(){
+        float resultat = 0;
+        for(Transaction v : ventes){
+            resultat += v.getPrixVente();
+        }
+        return resultat;
+    }
 }

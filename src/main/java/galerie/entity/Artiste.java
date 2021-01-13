@@ -13,7 +13,7 @@ public class Artiste extends Personne{
     @NonNull
     private String biographie;
     
-    @OneToMany(mappedBy="artiste")
-    private List<Tableau> tableau;
+    @OneToMany(mappedBy="auteur")
+    private List<Tableau> oeuvres;
     
 }
