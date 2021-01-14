@@ -17,7 +17,7 @@ import lombok.*;
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Personne {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private Integer idPersonne;
+    private Integer id;
     
     @Column(unique=true)
     @NonNull
@@ -29,6 +29,12 @@ public class Personne {
     
     @OneToMany(mappedBy ="client")
     private List<Transaction> achats;
+    
+    public Personne( String nom, String adresse){
+        this.nom = nom;
+        this.adresse = adresse;
+        this.achats = new ArrayList<>();
+    }
     
     public float budgetArt(int annee){
         float budget = 0;

@@ -14,7 +14,7 @@ import lombok.*;
 @Entity // Une entité JPA
 public class Transaction {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private Integer idTransaction;
+    private Integer id;
     
     @Column(unique=true)
     @NonNull

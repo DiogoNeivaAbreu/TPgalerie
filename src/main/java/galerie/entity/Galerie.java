@@ -11,7 +11,7 @@ import lombok.*;
 @Entity // Une entité JPA
 public class Galerie {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private Integer idGalerie;
+    private Integer id;
 
     @Column(unique=true)
     @NonNull
@@ -23,6 +23,12 @@ public class Galerie {
     
     @OneToMany(mappedBy = "organisateur", cascade = CascadeType.ALL)
     private List<Exposition> evenements = new LinkedList<>();
+    
+    public Galerie(String nom, String adresse){
+        this.nom = nom;
+        this.adresse = adresse;
+        this.evenements = new LinkedList<>();
+    }
     
     public float CAannuel(int annee){
         float result = 0;
