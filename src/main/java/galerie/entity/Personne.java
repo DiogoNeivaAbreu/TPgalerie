@@ -12,7 +12,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import lombok.*;
 
-@Getter @Setter @NoArgsConstructor @RequiredArgsConstructor @ToString
+@Getter @Setter @NoArgsConstructor @ToString
 @Entity // Une entité JPA
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Personne {

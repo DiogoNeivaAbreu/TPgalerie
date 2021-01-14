@@ -7,7 +7,7 @@ import lombok.*;
 // Un exemple d'entité
 // On utilise Lombok pour auto-générer getter / setter / toString...
 // cf. https://examples.javacodegeeks.com/spring-boot-with-lombok/
-@Getter @Setter @NoArgsConstructor @RequiredArgsConstructor @ToString
+@Getter @Setter @NoArgsConstructor @ToString
 @Entity // Une entité JPA
 public class Galerie {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 

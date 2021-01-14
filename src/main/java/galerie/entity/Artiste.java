@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import lombok.*;
 
-@Getter @Setter @ToString(callSuper = true) @NoArgsConstructor @RequiredArgsConstructor 
+@Getter @Setter @ToString(callSuper = true) @NoArgsConstructor 
 @Entity // Une entité JPA
 public class Artiste extends Personne{
     @Column(unique=true)
