@@ -16,7 +16,7 @@ import lombok.*;
 @Entity // Une entité JPA
 public class Tableau {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private Integer id;
+    private Integer idTableau;
     
     @Column(unique=true)
     @NonNull

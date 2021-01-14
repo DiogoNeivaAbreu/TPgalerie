@@ -20,7 +20,7 @@ import lombok.*;
 @Entity // Une entité JPA
 public class Exposition {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private Integer id;
+    private Integer idExposition;
     
     @Column(unique=true)
     @NonNull

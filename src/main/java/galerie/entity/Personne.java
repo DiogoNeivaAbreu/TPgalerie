@@ -17,7 +17,7 @@ import lombok.*;
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Personne {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private Integer id;
+    private Integer idPersonne;
     
     @Column(unique=true)
     @NonNull
