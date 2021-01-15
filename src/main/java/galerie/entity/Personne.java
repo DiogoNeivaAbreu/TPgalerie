@@ -23,7 +23,7 @@ public class Personne {
     @NonNull
     private String nom;
     
-    @Column(unique = true)
+    @Column
     @NonNull
     private String adresse;
     

@@ -18,14 +18,24 @@ public class GalerieRepositoryTest {
 
     @Autowired
     private GalerieRepository galerieDAO;
+    private Galerie nvlGalerie;
 
     @Test
-    @Sql("test-data.sql") // On peut charger des donnnées spécifiques pour un test
+//    @Sql("test-data.sql") // On peut charger des donnnées spécifiques pour un test
     public void onSaitCompterLesEnregistrements() {
         log.info("On compte les enregistrements de la table 'Galerie'");
         int combienDansLeJeuDeTest = 1; 
         long nombre = galerieDAO.count();
         assertEquals(combienDansLeJeuDeTest, nombre, "On doit trouver 1 galerie" );
+    }
+    
+    @Test
+//    @Sql("test-data.sql")
+    public void ajouterGalerie(){
+        nvlGalerie = new Galerie("SuperG", "Castres");
+        galerieDAO.save(nvlGalerie);
+        long nombre = galerieDAO.count();
+        assertEquals(2, nombre, "On doit trouver 2 galeries");
     }
 
 }
