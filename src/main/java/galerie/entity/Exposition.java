@@ -37,7 +37,7 @@ public class Exposition {
     @ManyToOne
     private Galerie organisateur;
     
-    @OneToMany(mappedBy = "lieuDeVente", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "lieuDeVente")
 	private List<Transaction> ventes = new LinkedList<>();
     
     @ManyToMany

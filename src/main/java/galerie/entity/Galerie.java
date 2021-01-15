@@ -21,7 +21,7 @@ public class Galerie {
     @NonNull
     private String adresse;
     
-    @OneToMany(mappedBy = "organisateur", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "organisateur")
     private List<Exposition> evenements = new LinkedList<>();
     
     public Galerie(String nom, String adresse){

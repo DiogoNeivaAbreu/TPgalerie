@@ -30,16 +30,31 @@ public class ConsoleApp implements CommandLineRunner {
      * Equivalent de la méthode 'main' pour une application Spring Boot
      **/
     public void run(String... args) throws Exception {
-
-        tapezEnterPourContinuer();
-
-        log.info("Recherche par clé");
-        Optional<Galerie> op = galerieDAO.findById(1);
-        op.ifPresent(p -> {
-            log.info("On a trouvé la galerie : {}", p);
-        });
-
-        tapezEnterPourContinuer();
+        
+//        log.info("On liste tous les enregistrements de la table 'Galerie'");
+//        for (Galerie g : galerieDAO.findAll()) {
+//            System.out.println(g);
+//        }
+//
+//        tapezEnterPourContinuer();
+//
+//        log.info("Recherche par clé");
+//        Optional<Galerie> op = galerieDAO.findById(1);
+//        op.ifPresent(p -> {
+//            log.info("On a trouvé la galerie : {}", p);
+//        });
+//
+//        tapezEnterPourContinuer();
+//        
+//        log.info("Démo de l'héritage en Spring-JPA");
+//        // On crée des entités dans les sous-classes de 'Item'
+//        Personne Jean = new Personne("Bidule", "Castres");
+//        Artiste Pablo = new Artiste("Picasso", "Italie", "sabiographie");
+//        // On les enregistre dans la base
+//        personneDAO.save(Jean);
+//        personneDAO.save(Pablo);
+//        // On les retrouve dans les Item
+//        personneDAO.findAll().forEach(System.out::println);
 
     }
 
