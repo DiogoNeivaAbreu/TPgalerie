@@ -10,11 +10,11 @@ import lombok.*;
 @Getter @Setter @ToString(callSuper = true) @NoArgsConstructor 
 @Entity // Une entité JPA
 public class Artiste extends Personne{
-    @Column(unique=true)
+    @Column(unique = true)
     @NonNull
     private String biographie;
     
-    @OneToMany(mappedBy="auteur")
+    @OneToMany(mappedBy = "auteur")
     private List<Tableau> oeuvres;
     
     public Artiste( String nom, String adresse, String biographie){

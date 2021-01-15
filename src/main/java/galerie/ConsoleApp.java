@@ -31,10 +31,10 @@ public class ConsoleApp implements CommandLineRunner {
      **/
     public void run(String... args) throws Exception {
         
-//        log.info("On liste tous les enregistrements de la table 'Galerie'");
-//        for (Galerie g : galerieDAO.findAll()) {
-//            System.out.println(g);
-//        }
+        log.info("On liste tous les enregistrements de la table 'Galerie'");
+        for (Galerie g : galerieDAO.findAll()) {
+            System.out.println(g);
+        }
 //
 //        tapezEnterPourContinuer();
 //

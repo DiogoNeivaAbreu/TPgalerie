@@ -19,11 +19,11 @@ public class Personne {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Integer id;
     
-    @Column(unique=true)
+    @Column(unique = true)
     @NonNull
     private String nom;
     
-    @Column(unique=true)
+    @Column(unique = true)
     @NonNull
     private String adresse;
     
@@ -39,7 +39,7 @@ public class Personne {
     public float budgetArt(int annee){
         float budget = 0;
         for(Transaction a : achats){
-            if(a.getVenduLe().equals(annee)){
+            if(a.getVenduLe().getYear() == annee){
                 budget += a.getPrixVente();
             }
         }

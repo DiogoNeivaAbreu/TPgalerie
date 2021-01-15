@@ -49,6 +49,10 @@ public class Exposition {
     )            
     List<Tableau> oeuvres = new LinkedList<>();
     
+    /**
+     * Calculer le chiffre d'affaires pour une exposition
+     * @return le chiffre d'affaires de cette exposition
+     */
     public float CA(){
         float resultat = 0;
         for(Transaction v : ventes){

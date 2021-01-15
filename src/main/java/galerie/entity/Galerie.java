@@ -13,11 +13,11 @@ public class Galerie {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Integer id;
 
-    @Column(unique=true)
+    @Column(unique = true)
     @NonNull
     private String nom;
     
-    @Column(unique=true)
+    @Column(unique = true)
     @NonNull
     private String adresse;
     
@@ -33,7 +33,7 @@ public class Galerie {
     public float CAannuel(int annee){
         float result = 0;
         for( Exposition e : evenements){
-            if(e.getDebut().equals(annee)){
+            if(e.getDebut().getYear() == annee){
                 result += e.CA();
             }
         }
