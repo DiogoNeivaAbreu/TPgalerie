@@ -1,7 +1,9 @@
 package galerie.dao;
 
 import galerie.entity.Exposition;
+import galerie.entity.Transaction;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
@@ -27,11 +29,25 @@ public class ExpositionRepositoryTest {
     }
     
     @Test
-    public void ajouterGalerie(){   
-        
-        nvlExposition = new Exposition(LocalDate.of(2021,01,15), "expo1", 2);
+    public void ajouterExposition(){   
+        log.info("On ajoute un nouvel enregistrement dans la table 'exposition'");
+        nvlExposition = new Exposition(LocalDate.now(), "exposition1", 20);
         expositionDAO.save(nvlExposition);
         long nombre = expositionDAO.count();
         assertEquals(5, nombre, "On doit trouver 5 expositions"); 
+    }
+    
+    @Test 
+    public void CAcorrect(){
+        Exposition e = new Exposition(LocalDate.now(), "expo1", 2);
+        Transaction t1 = new Transaction();
+        t1.setPrixVente(100);
+        t1.setLieuDeVente(e);
+        ArrayList<Transaction> ventes = new ArrayList();
+        ventes.add(t1);
+        e.setVentes(ventes);
+        assertEquals(100, e.CA(), "Le CA doit être de 100");
+        
+        assertEquals(100, expositionDAO.chiffreAffairePour(1), "Le CA doit être de 100" );
     }
 }

@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import lombok.*;
 
-@Getter @Setter @NoArgsConstructor @RequiredArgsConstructor @ToString
+@Getter @Setter @NoArgsConstructor @ToString
 @Entity // Une entité JPA
 public class Transaction {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
@@ -32,4 +32,9 @@ public class Transaction {
     
     @ManyToOne
     private Personne client;
+    
+    public Transaction(LocalDate venduLe, float prixVente){
+        this.venduLe = venduLe;
+        this.prixVente = prixVente;
+    }
 }

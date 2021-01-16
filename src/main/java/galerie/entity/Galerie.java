@@ -30,6 +30,11 @@ public class Galerie {
         this.evenements = new LinkedList<>();
     }
     
+    /**
+     * Calculer le chiffre d'affaires pour une galerie
+     * @param annee l'année du chiffre d'affaire
+     * @return le chiffre d'affaires de cette galerie pour une année
+     */
     public float CAannuel(int annee){
         float result = 0;
         for( Exposition e : evenements){
